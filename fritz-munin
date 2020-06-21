@@ -8,7 +8,7 @@ import helpers_fritz
 fd = helpers_fritz.fritz_fetch()
 
 if 'config' in sys.argv:
-    print 'graph_title 0 Fritzbox UL/DL'
+    print 'graph_title Fritzbox upload, download'
     print 'graph_vlabel Kbyte/s'
     print 'graph_category network'
     print 'graph_scale no'
