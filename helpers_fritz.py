@@ -10,7 +10,7 @@ import json
    keep the interpreter running you can get fster fetches
 
 
-   CONSIDER: fetching things beyond transfers.
+   CONSIDER: fetching more than just transfer speeds.
 """
 
 _fritz_sid = None
