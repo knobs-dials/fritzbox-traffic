@@ -1,9 +1,8 @@
 # fritzbox-traffic
 
-Fetches upload and download speeds from a fritzbox.
+Fetches upload and download statistics from a fritzbox, right now for munin.
 
 Change the login info in helpers_fritz.py before running
 
-Has munin plugin.
 
-TODO: add influxdb script
+CONSIDER: add influxdb script
