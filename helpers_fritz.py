@@ -1,4 +1,4 @@
-import time, urllib, urllib2, hashlib, pprint, re
+import time, urllib, urllib2, hashlib, pprint, re, sys
 import urllib, urllib2, socket, httplib
 
 import json
@@ -57,7 +57,7 @@ def urlfetch(url, data=None, headers=None, raise_as_none=False, return_reqresp=F
             return data
     except (socket.timeout), e:
         if raise_as_none:
-            log( 'Timeout fetching %r'%url )
+            sys.stderr.write( 'Timeout fetching %r\n'%url )
             return None
         else:
             raise
