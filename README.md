@@ -1,21 +1,19 @@
 # fritzbox-traffic
 
-Fetches upload and download statistics from a fritzbox, right now for munin.
+Fetches upload and download statistics from a fritzbox.
+
+Right now for munin. The munin plugin gives the mean and max of the last minute's data.
+
+
+Change the login info in helpers_fritz.py before running
 
 This is a scraping solution - we're actually fetching the data fritzbox uses for the graph.
 
 
-This munin plugin uses the maximum over a minute, which I personally care more to know about, but mean would be more representative.
-
-Change the login info in helpers_fritz.py before running
-
-
 # notes
-
 Yes, the auth is currently hardcoded in the library, and as a global. You only have one fritzbox, right?
 
 The login is a challenge-response thing. Details depend slightly on version.
-
 
 fritz_fetch() returns a dict like
 
@@ -44,11 +42,9 @@ fritz_fetch() returns a dict like
 
 ```
 
-
-
 The traffic stuff mostly a bunch of ds_ (downstream) and us_ (upstream) details, including some guest stuff, which seems to be in bytes per second (a bit of a unit mix, the link speed seems to be in bits per second).
 
-Upstram is split into into background (few things), normal (most things), priotitized, and realtime
+Upstream is split into into background (few things), normal (most things), priotitized, and realtime
 
 The lists are the most recent first.
 
