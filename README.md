@@ -11,9 +11,9 @@ Change the login info in helpers_fritz.py before running
 
 # notes
 
-The login is a challenge-response thing. Details depend slightly on version.
-
 Yes, the auth is currently hardcoded in the library, and as a global. You only have one fritzbox, right?
+
+The login is a challenge-response thing. Details depend slightly on version.
 
 
 fritz_fetch() gives data like
