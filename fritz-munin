@@ -7,40 +7,67 @@ import helpers_fritz
 
 fd = helpers_fritz.fritz_fetch()
 
+def mean(vals):
+    return float(sum(vals))/len(vals)
+
+
 if 'config' in sys.argv:
     print 'graph_title Fritzbox upload and download'
     print 'graph_vlabel Kbyte/s'
     print 'graph_category network'
     print 'graph_scale no'
-    print 'graph_height 250'
-    print 'graph_args -l %d -u %d  -r'%(
-        -fd['upstream']/(8*1000),
+    print 'graph_height 220'
+    print 'graph_args -l %d -u %d  -r'%(   # reported upstream and downstream speed
+        -fd['upstream']/(8*1000),  
          fd['downstream']/(8*1000),
         )
 
-    print 'down.label Download'
+    print 'down.label Download (minute mean)'
     print 'down.draw  AREA'
     print 'down.type  GAUGE'
 
-    print 'up_bg.label Upload (background)'
+    print 'up_bg.label Upload, background (minute mean)'
     print 'up_bg.draw  AREA'
     print 'up_bg.type  GAUGE'
     
-    print 'up_df.label Upload (default)'
+    print 'up_df.label Upload, default (minute mean)'
     print 'up_df.draw  STACK'
     print 'up_df.type  GAUGE'
     
-    print 'up_im.label Upload (important)'
+    print 'up_im.label Upload, important (minute mean)'
     print 'up_im.draw  STACK'
     print 'up_im.type  GAUGE'
     
-    print 'up_rt.label Upload (realtime)'
+    print 'up_rt.label Upload, realtime (minute mean)'
     print 'up_rt.draw  STACK'
     print 'up_rt.type  GAUGE'
+
+
+    print 'downmax.label Download (minute max)'
+    print 'downmax.draw  LINE1'
+    print 'downmax.type  GAUGE'
+
+    print 'upmax.label Upload (minute max)'
+    print 'upmax.draw  AREA'
+    print 'upmax.type  GAUGE'
     
 else:
-    print 'down.value %d'%(   max(fd['ds_bps_curr'])/1000,             ) 
-    print 'up_bg.value %d'%( -max(fd['us_background_bps_curr'])/1000, )
-    print 'up_df.value %d'%( -max(fd['us_default_bps_curr'])/1000, )
-    print 'up_im.value %d'%( -max(fd['us_important_bps_curr'])/1000, )
-    print 'up_rt.value %d'%( -max(fd['us_realtime_bps_curr'])/1000, )
+    print 'down.value %d'%(   mean(fd['ds_bps_curr'])/1000,             ) 
+    print 'up_bg.value %d'%( -mean(fd['us_background_bps_curr'])/1000, )
+    print 'up_df.value %d'%( -mean(fd['us_default_bps_curr'])/1000, )
+    print 'up_im.value %d'%( -mean(fd['us_important_bps_curr'])/1000, )
+    print 'up_rt.value %d'%( -mean(fd['us_realtime_bps_curr'])/1000, )
+    
+
+    print 'downmax.value %d'%(   max(fd['ds_bps_curr'])/1000,             )
+    # get the peak of sum-at-each-time (not sum of individual peaks)
+    upmax_l = list( max(z)  for z in zip( 
+        fd['us_background_bps_curr'],
+        fd['us_default_bps_curr'],
+        fd['us_important_bps_curr'],
+        fd['us_realtime_bps_curr'],
+        ))
+    #print upmax_l
+    print 'upmax.value %d'%( -(max(upmax_l))/1000, )
+
+    

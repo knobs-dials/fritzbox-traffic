@@ -10,7 +10,7 @@ import json
    keep the interpreter running you can get fster fetches
 
 
-   CONSIDER: fetching more than just transfer speeds.
+   CONSIDER: fetching things beyond transfers.
 """
 
 _fritz_sid = None
@@ -109,3 +109,6 @@ def fritz_fetch():
     return jd
 
 
+if __name__ == '__main__':
+    import pprint
+    pprint.pprint( fritz_fetch() )
