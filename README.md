@@ -2,7 +2,8 @@
 
 Fetches upload and download statistics from a fritzbox, right now for munin.
 
-We're actually fetching the data fritzbox uses for the graph.
+This is a scraping solution - we're actually fetching the data fritzbox uses for the graph.
+
 
 This munin plugin uses the maximum over a minute, which I personally care more to know about, but mean would be more representative.
 
