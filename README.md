@@ -16,7 +16,7 @@ Yes, the auth is currently hardcoded in the library, and as a global. You only h
 The login is a challenge-response thing. Details depend slightly on version.
 
 
-fritz_fetch() gives data like
+fritz_fetch() returns a dict like
 
 ```
 {u'_node': u'sg0',
