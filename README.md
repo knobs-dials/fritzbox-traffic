@@ -6,16 +6,17 @@ We're actually fetching the data fritzbox uses for the graph.
 
 This munin plugin uses the maximum over a minute, which I personally care more to know about, but mean would be more representative.
 
-
 Change the login info in helpers_fritz.py before running
-(Yes, the auth is currently hardcoded in the library, and as a global. You only have one fritzbox, right?)
+
 
 # notes
 
 The login is a challenge-response thing. Details depend slightly on version.
 
+Yes, the auth is currently hardcoded in the library, and as a global. You only have one fritzbox, right?
 
-You then get data like 
+
+fritz_fetch() gives data like
 
 ```
 {u'_node': u'sg0',
