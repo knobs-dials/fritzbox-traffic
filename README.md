@@ -48,4 +48,4 @@ Upstream is split into into background (few things), normal (most things), priot
 
 The lists are the most recent first.
 
-They are apparently averages calculated every 5-sec averages (the fetch from the graphing page is every 5 sec, the reported values also stay constant over 5 seconds).
+They are apparently averages over 5 seconds (the fetch from the graphing page is every 5 sec, the reported values also stay constant over 5 seconds).
