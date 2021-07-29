@@ -1,5 +1,4 @@
 #!/usr/bin/python
-
 import sys
 
 import helpers_fritz
@@ -12,17 +11,17 @@ def mean(vals):
 
 
 if 'config' in sys.argv:
-    print 'graph_title Fritzbox upload and download'
-    print 'graph_vlabel Kbyte/s'
-    print 'graph_category network'
-    print 'graph_scale no'
-    print 'graph_height 220'
-    print 'graph_args -l %d -u %d  -r'%(   # reported upstream and downstream speed
+    print( 'graph_title Fritzbox upload and download')
+    print( 'graph_vlabel Kbyte/s')
+    print( 'graph_category network')
+    print( 'graph_scale no')
+    print( 'graph_height 220')
+    print( 'graph_args -l %d -u %d  -r'%(   # reported upstream and downstream speed
         -fd['upstream']/(8*1000),  
          fd['downstream']/(8*1000),
-        )
+        ))
 
-    print 'down.label Download (minute mean)'
+    print( 'down.label Download (minute mean)')
     print 'down.draw  AREA'
     print 'down.type  GAUGE'
 
