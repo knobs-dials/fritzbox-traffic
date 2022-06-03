@@ -2,12 +2,22 @@
 
 Fetches upload and download statistics from a fritzbox.
 
-Right now for munin. The munin plugin gives the mean and max of the last minute's data.
+Right now only used by a munin plugin. Which gives the mean and max of the last minute's data.
+
+This is a scraping solution - we're actually fetching the JSON data fritzbox fetches for its own traffic graph.
 
 
+# Install
 Change the login info in helpers_fritz.py before running
 
-This is a scraping solution - we're actually fetching the data fritzbox uses for the graph.
+
+# Broken-ish
+
+This code broke when our fritzbox got replaced, largely because the username was no longer empty.
+
+There is also a newer version of the exchange, based on SHA256 rather than MD5, that I haven't figured out yet.
+
+I'll try to update for both. If you need the username fix only, bug me.
 
 
 # notes
