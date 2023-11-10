@@ -11,13 +11,13 @@ This is a scraping solution - we're actually fetching the JSON data fritzbox fet
 Change the login info in helpers_fritz.py before running
 
 
-# Broken-ish
+# Broken-ish?
 
 This code broke when our fritzbox got replaced, largely because the username was no longer empty.
 
-There is also a newer version of the exchange, based on SHA256 rather than MD5, that I haven't figured out yet.
-
-I'll try to update for both. If you need the username fix only, bug me.
+There is also a newer version of the exchange, based on SHA256 rather than MD5, 
+that I made work (probably, with some more work) but now I have no way to test whether the old version still works. 
+Feel free to tell me what's broken.
 
 
 # notes
