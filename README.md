@@ -52,6 +52,9 @@ fritz_fetch() returns a dict like
 
 ```
 
+If you need the v2 version of the auth, this has also changed -- a dict just like that still exists but is nested in more dict.
+
+
 The traffic stuff mostly a bunch of ds_ (downstream) and us_ (upstream) details, including some guest stuff, which seems to be in bytes per second (a bit of a unit mix, the link speed seems to be in bits per second).
 
 Upstream is split into into background (few things), normal (most things), priotitized, and realtime
