@@ -13,10 +13,11 @@ Change the login info in helpers_fritz.py before running
 
 # Broken-ish?
 
-This code broke when our fritzbox got replaced, largely because the username was no longer empty.
+This code broke when our fritzbox got replaced by a similar model, 
+largely because the auth changed slightly - username was no longer empty, used SHA256 instad of MD5.
 
-There is also a newer version of the exchange, based on SHA256 rather than MD5, 
-that I made work (probably, with some more work) but now I have no way to test whether the old version still works. 
+There is now a newer version of the exchange, that I made work (probably, with some more work)
+but now I have no way to test whether the old version still works. 
 Feel free to tell me what's broken.
 
 
